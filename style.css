@@ -1,0 +1,27 @@
+/* características GLOBAIS */
+*{
+    box-sizing: border-box;
+}
+
+/* características ESPECÍFICAS */
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(86, 85, 85);
+    color: rgb(191, 186, 186);
+}
+
+form {
+    width: 300px;
+    margin: 200px auto;
+    text-align: center;
+    background-color: rgb(56, 56, 56);
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    width: 250px;
+    height: 30px;
+    background-color: rgb(165, 159, 159);
+}
