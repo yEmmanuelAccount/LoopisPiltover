@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @font-face {
+            font-family: "CenturyGothic-Regular";
+            src: local("Century Gothic"), local("CenturyGothic"), sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Contêiner principal -->
+    <div class="container">
+
+        <!-- Lateral -->
+        <div class="grupo-lateral">
+            <div class="lateral">
+                <div class="lateral2"></div>
+            </div>
+            <div class="bem-vindo">BEM-VINDO!</div>
+            <div class="Container-Imagem">
+                <div class="background-imagem"></div>
+                <img class="Imagem" src="assets\imagem-lateral.svg" alt="Ilustração" />
+            </div>
+            <div class="ja-conhece-a-loopis">Já conhece a Loopis?</div>
+            <div class="texto loopis">
+                A Loopis é a empresa Júnior do curso de Análise e Desenvolvimento de Sistemas do IFPB Campus Cajazeiras.
+            </div>
+            <div class="btn-quero-conhecer">
+                <a href="https://loopisjr.com.br/assets/pages/contact.html" class="quero-conhecer">QUERO CONHECER!</a>
+            </div>            
+        </div>
+
+        <!-- Formulário de Login -->
+        <div class="grupo-login">
+            <form class="login-form" action="#" method="POST">
+                <div class="login">LOGIN</div>
+                
+                <!-- Campo de E-mail -->
+                <div class="email">
+                    <div class="campo-email">
+                        <img class="icon-user" src="assets\icone-usuario.svg" alt="Ícone de usuário">
+                        <input type="email" name="email" placeholder="E-MAIL" required />
+                    </div>
+                </div>
+
+                <!-- Campo de Senha -->
+                <div class="senha">
+                    <div class="campo-senha">
+                        <img class="icon-lock" src="assets\icone-cadeado.svg" alt="Ícone de cadeado">
+                        <input type="password" name="password" placeholder="******" required />
+                   </div>
+                    <div class="esqueceu-a-senha"><a href="coming-soon.html">Esqueceu a senha?</a></div>
+                </div> 
+
+                <!-- Botão de Entrar -->
+                <div class="entrar">
+                    <button class="btn-entrar" type="submit">ENTRAR</button>
+                    <div class="criar-conta">
+                        <span>Ainda não tem uma conta? </span><a href="coming-soon.html">Crie uma conta</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
