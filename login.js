@@ -3,9 +3,10 @@ function logar(){
     var login = document.getElementById('login').value;
     var senha = document.getElementById('senha').value;
 
-    if(login == "adm" && senha == "adm"){
+    // verifica o login e a senha
+    if(login == "adm@gmail.com" && senha == "adm"){
         alert('Login efetuado com sucesso!');
-        location.href = "home.html"; 
+        location.href = "todo.html"; 
     }
     else{
         alert('Algo está errado. Tente novamente.');
