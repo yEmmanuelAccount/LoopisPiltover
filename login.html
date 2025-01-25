@@ -12,6 +12,8 @@
             src: local("Century Gothic"), local("CenturyGothic"), sans-serif;
         }
     </style>
+
+    <script defer src="./login.js"></script>
 </head>
 <body>
     <!-- Background -->
@@ -48,7 +50,7 @@
                 <div class="email">
                     <div class="campo-email">
                         <img class="icon-user" src="assets\icone-usuario.svg" alt="Ícone de usuário">
-                        <input type="email" name="email" placeholder="E-MAIL" required />
+                        <input type="email" id="login" name="email" placeholder="E-MAIL" required />
                     </div>
                 </div>
 
@@ -56,14 +58,14 @@
                 <div class="senha">
                     <div class="campo-senha">
                         <img class="icon-lock" src="assets\icone-cadeado.svg" alt="Ícone de cadeado">
-                        <input type="password" name="password" placeholder="******" required />
+                        <input type="password" id="senha" name="password" placeholder="******" required />
                    </div>
                     <div class="esqueceu-a-senha"><a href="coming-soon.html">Esqueceu a senha?</a></div>
                 </div> 
 
                 <!-- Botão de Entrar -->
                 <div class="entrar">
-                    <button class="btn-entrar" type="submit">ENTRAR</button>
+                    <button class="btn-entrar" type="submit" onclick="logar(); return false">ENTRAR</button>
                     <div class="criar-conta">
                         <span>Ainda não tem uma conta? </span><a href="coming-soon.html">Crie uma conta</a>
                     </div>
