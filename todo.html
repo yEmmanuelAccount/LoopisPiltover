@@ -1,20 +1,37 @@
 <!DOCTYPE html> 
-<html lang="en"> 
+<html lang="pt-BR"> 
     <head>   
-        <meta charset="UTF-8">   
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-        <title>To-Do List</title>   
-        <link href='./todo.css' rel="stylesheet", type="text/css">   
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Lista de Tarefas</title> 
+        <link href='./todo.css' rel="stylesheet" type="text/css"> 
         <script defer src="./todo.js"></script> 
     </head> 
     <body>   
-        <h2>To-Do List</h2>
-            <div class='todoBox'>                
-                <div class="horizontal">       
-                    <input id="newTaskInput" type="text" placeholder="tarefa">       
-                    <button onclick="addNovaTask()">+</button>
-                </div>
-                <div id="proceduralTasks"></div>      
-            </div> 
-        </body> 
+        <!-- Header to-do list -->
+        <img src="LoopisPiltover-main\to-do-header.svg" alt="Lista de Tarefas" class="todo-logo"> 
+        
+        <!-- Caixa principal das tarefas -->
+        <div class='todoBox'>                
+            <div class="horizontal">       
+                <!-- Campo para adicionar tarefa -->
+                <input id="newTaskInput" type="text" placeholder="Nova Tarefa">       
+                <!-- Botão de adicionar tarefa -->
+                <button onclick="addNovaTask()" class="confirm-icon"></button>
+            </div>
+            <!-- Área de exibição das tarefas -->
+            <div id="proceduralTasks"></div>      
+        </div> 
+
+        <!-- Painel de edição de tarefas -->
+        <div id="editContainer" class="editPanel" style="display: none; position: fixed; z-index: 1000; max-width: 90vw;">
+            <h1 style="margin: 0; color: white; font-size: 1.5rem;">Editar</h1> 
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <!-- Campo para editar tarefa -->
+                <input type="text" id="editInput" maxlength="100" style="width: 100%;">
+                <!-- Botão para confirmar edição -->
+                <button id="confirmEditButton" class="confirm-icon"></button>
+            </div>
+        </div>
+    </body> 
 </html>
