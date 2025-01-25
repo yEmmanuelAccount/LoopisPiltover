@@ -1,17 +1,32 @@
 const tasksListas = document.getElementById('proceduralTasks'); 
 const novoTextoTask = document.getElementById('newTaskInput');  
+const editContainer = document.getElementById('editContainer'); 
+const editInput = document.getElementById('editInput'); 
+const confirmEditButton = document.getElementById('confirmEditButton'); 
 let tasks = [];  
 
 function addNovaTask() {   
-    const novaTaskObj = {name: novoTextoTask.value, status: false};   
+    if (!novoTextoTask.value.trim()) { // Verifica se o input está vazio ou só tem espaços
+        alert('Por favor, insira uma tarefa válida.');
+        return;
+    }
+    const novaTaskObj = {name: novoTextoTask.value.substring(0, 100), status: false}; // Limita a 100 caracteres
     const atualIndex = tasks.push(novaTaskObj) - 1;   
     localStorage.setItem(`task-${atualIndex}`, JSON.stringify(novaTaskObj));   
     localStorage.setItem('lastIndex', atualIndex);
     criarTask(atualIndex, novaTaskObj.name, novaTaskObj.status); 
+    novoTextoTask.value = ''; // Limpa o input após adicionar a tarefa
 }  
 
+// Permite adicionar tarefa pressionando Enter
+novoTextoTask.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        addNovaTask();
+    }
+});
+
 function updateTask(index, taskName, status) {   
-    tasks[index].name = taskName;
+    tasks[index].name = taskName.substring(0, 100); // Limita a 100 caracteres
     tasks[index].status = status;   
     localStorage.setItem(`task-${index}`, JSON.stringify(tasks[index])); 
 }  
@@ -32,58 +47,45 @@ function criarTask(index, taskName, status) {
     text.classList.toggle('finished', status);   
     newTask.appendChild(text);    
 
-    const editContainer = document.createElement('div');   
-    editContainer.classList.add('editPanel');   
-    editContainer.style.display = 'none';   
-
-    const editInput = document.createElement('input');   
-    editInput.type = 'text';   
-    editInput.placeholder = taskName;   
-    editContainer.appendChild(editInput);  
-
     const editButton = document.createElement('button');  
-    editButton.innerText = 'Editar';  
-
+    editButton.classList.add('edit-icon'); // Adicionado ícone de edição
     editButton.onclick = () => {    
         editInput.placeholder = text.innerText;     
-        editInput.value = '';     
+        editInput.value = text.innerText;     
         editContainer.style.display = 'flex';   
-    }   
+        editInput.style.width = `${Math.max(text.offsetWidth, 300)}px`; // Tamanho inicial igual ao texto ou tamanho mínimo de 300px
+        editContainer.style.top = '50%';
+        editContainer.style.left = '50%';
+        editContainer.style.transform = 'translate(-50%, -50%)';
+
+        confirmEditButton.onclick = () => {     
+            const trimmedValue = editInput.value.substring(0, 100); // Limita a 100 caracteres
+            if (!trimmedValue.trim()) { // Verifica se o input está vazio ou só tem espaços
+                alert('O campo de edição não pode estar vazio.');
+                return;
+            }
+            text.innerText = trimmedValue;     
+            updateTask(index, trimmedValue, tasks[index].status);     
+            editContainer.style.display = 'none';   
+        };
+    };   
 
     newTask.appendChild(editButton);      
-    
-    const confirmEditButton = document.createElement('button');   
-    confirmEditButton.innerText = 'Editar';  
-    confirmEditButton.onclick = () => {     
-        text.innerText = editInput.value;     
-        updateTask(index, editInput.value, tasks[index].status);     
-        editContainer.style.display = 'none';   
-    }   
-    
-    editContainer.appendChild(confirmEditButton);   
-    newTask.appendChild(editContainer);    
+
     const deleteButton = document.createElement('button');   
-    deleteButton.innerText = 'delete';   
+    deleteButton.classList.add('close-icon'); // Adicionado ícone de exclusão
     deleteButton.onclick = () => {     
         deleteTask(index);    
         newTask.remove();   
-    }   
+    };   
     newTask.appendChild(deleteButton);    
 
     const checkButton = document.createElement('button');   
-    checkButton.innerText = status ? 'desconcluir' : 'concluir';   
-    checkButton.onclick = () => {     
-        if (text.classList.contains('finished')) {       
-            text.classList.remove('finished');       
-            checkButton.innerText = 'concluir';       
-            updateTask(index, tasks[index].name, false);     
-        } 
-        else {       
-            text.classList.add('finished');       
-            checkButton.innerText = 'desconcluir';      
-            updateTask(index, tasks[index].name, true);     
-        }  
-    }   
+    checkButton.classList.add('confirm-icon'); // Ícone único
+    checkButton.onclick = () => {   
+        text.classList.toggle('finished');
+        updateTask(index, tasks[index].name, text.classList.contains('finished'));
+    };   
     
     newTask.appendChild(checkButton);    
     tasksListas.appendChild(newTask); 
