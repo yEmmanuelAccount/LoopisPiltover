@@ -1,0 +1,284 @@
+/* Estilos Globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: "CenturyGothic-Regular", sans-serif;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Fundo da página */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('./background.svg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Contêiner principal */
+.container {
+  width: 970.5px;
+  height: 546px;
+  border-radius: 22.5px;
+  background: rgba(214, 71, 133, 0.1);
+  box-shadow: -57px 46.5px 26.175px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(30px);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Grupo lateral */
+.grupo-lateral {
+  width: 327.75px;
+  height: 546px;
+  position: relative;
+}
+
+/* Estrutura lateral */
+.lateral {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.lateral2 {
+  background: linear-gradient(195.8deg, rgba(2, 17, 44, 0.25) 0%, rgba(7, 56, 146, 0.82) 100%);
+  border-radius: 22.5px 0px 0px 22.5px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+/* Texto de bem-vindo */
+.bem-vindo {
+  color: #ffffff;
+  text-align: center;
+  font-family: "CenturyGothic-Regular", sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+}
+
+/* Container para as imagens da lateral */
+.Container-Imagem {
+  position: absolute;
+  top: 107.25px;
+  left: 67.5px;
+  width: 192.75px;
+  height: 192.75px;
+}
+
+.background-imagem {
+  background: rgba(214, 71, 133, 0.35);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  box-shadow: -7.5px 15px 13.575px 0px rgba(0, 0, 0, 0.15);
+  position: absolute;
+}
+
+.Imagem {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+
+/* Texto da loopis */
+.ja-conhece-a-loopis {
+  color: #ffffff;
+  text-align: center;
+  font-family: "CenturyGothic-Regular", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  position: absolute;
+  top: 315px; 
+  left: 0;
+  width: 100%;
+  z-index: 10; 
+}
+
+
+.texto.loopis {
+  color: #ffffff;
+  text-align: center;
+  font-family: "CenturyGothic-Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  top: 360px;
+  left: 20px;
+  width: 280px;
+}
+
+/* Botão de quero conhecer */
+.btn-quero-conhecer {
+    background: rgba(214, 71, 133, 0.35);
+    border-radius: 48.75px;
+    padding: 13.5px 26.25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 225px;
+    height: 48.75px;
+    position: absolute;
+    left: calc(50% - 112.5px);
+    top: 447px;
+    box-shadow: -7.5px 15px 13.65px 0px rgba(0, 0, 0, 0.15);
+    text-decoration: none; /* Remove o sublinhado do link */
+  }
+  
+  .quero-conhecer {
+    color: #ffffff;
+    text-align: center;
+    font-family: "CenturyGothic-Bold", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none; /* Garante que o texto não tenha sublinhado */
+  }
+  
+
+/* Alinhamento geral do grupo 2 */
+.grupo-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 35px; 
+  width: 60%;
+}
+
+/* Título do formulário */
+.login {
+  color: #ffffff;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 35px;
+  letter-spacing: 0.2em;
+  font-family: "CenturyGothic-Regular", sans-serif;
+}
+
+/* Campo E-mail e Senha */
+.email, .senha {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px; 
+}
+
+.campo-email, .campo-senha {
+  background: rgba(217, 217, 217, 0.25);
+  border-radius: 30px;
+  padding: 15px 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: -10px 20px 10px rgba(0, 0, 0, 0.2);
+}
+
+.campo-email input, .campo-senha input {
+  border: none;
+  background: none;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  outline: none;
+}
+
+.campo-email input::placeholder, .campo-senha input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Ícones */
+.icon-user {
+  position: absolute;
+  left: 17px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: auto;
+}
+
+.icon-lock {
+  position: absolute;
+  left: 17px;
+  top: 35%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: auto;
+}
+
+/* Texto "Esqueceu a senha" */
+.esqueceu-a-senha {
+  text-align: right;
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.esqueceu-a-senha a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+
+/* Botão Entrar */
+.btn-entrar {
+  background: rgba(7, 56, 146, 0.9);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  box-shadow: -10px 20px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+}
+
+.btn-entrar:hover {
+  background: rgba(0, 30, 100, 1);
+}
+
+/* Texto "Criar conta" */
+.criar-conta {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.criar-conta a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .group-2 {
+    width: 90%;
+  }
+}
